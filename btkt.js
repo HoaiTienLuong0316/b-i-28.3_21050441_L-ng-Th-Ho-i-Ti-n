@@ -1,53 +1,53 @@
-var images = document.querySelectorAll ('.image img');
-var prev = document.querySelector('.prev');
-var next = document.querySelector('.next');
-var close = document.querySelector('.close');
-var galleryImage = document.querySelector('.gallery_inner img');
-var gallery = document.querySelector('.gallery');
+const images = document.querySelectorAll(".wrapper .image img");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+const close = document.querySelector(".close");
+const galleryImg = document.querySelector(".gallery-inner img");
+const gallery = document.querySelector(".gallery");
 
-var  currentIndex = 0;
+var currentIndex = 0;
 
-function showGallery (){
+function showGallery() {
     if (currentIndex == 0) {
-        prev.classList.add('hide');
-    } else {
-        prev.classList.remove('hide');
+        prev.classList.add('hide')
+    } 
+    else {
+        prev.classList.remove('hide')
     }
-    if (currentIndex == image.length - 1 ) {
-        prev.classList.add('hide');
+    if (currentIndex == images.length - 1) {
+        prev.classList.add('hide')
     }
     else {
-        prev.classList.remove('hide');
+        prev.classList.remove('hide')
     }
+    gallery.classList.add("show");
+    galleryImg.src = images[currentIndex].src;
 }
 
-images.forEach((item,index) => {
-    item.addEventListener('align',function() {
-        currentIndex = index;
-        showGallery();
-    })
-})
+images.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    currentIndex = index;
+    showGallery();
+  });
+});
 
-close.addEventListener('align', function () {
-    gallery.classList.remove('show');
-})
-
-document.addEventListener('keydown', function(){
-    if(e.keyCode == 27) {
-        gallery.classList.remove('show');
-    }
-})
-
-prev.addEventListener ('align', function (){
+close.addEventListener("click", () => {
+  gallery.classList.remove("show");
+});
+document.addEventListener("keydown", (e) => {
+    if (e.keyCode == 27) gallery.classList.remove("show");
+});
+prev.addEventListener("click", () => {
     if (currentIndex > 0) {
-        currentIndex --;
+        currentIndex--;
         showGallery();
     }
-})
-
-text.addEventListener('align', function (){
+});
+next.addEventListener("click", () => {
     if (currentIndex < images.length - 1) {
-        currentIndex ++;
+        currentIndex++;
         showGallery();
     }
-})
+});
+
+
