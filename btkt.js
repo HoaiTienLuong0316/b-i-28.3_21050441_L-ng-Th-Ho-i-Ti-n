@@ -1,6 +1,6 @@
 const images = document.querySelectorAll(".wrapper .image img");
-const next = document.querySelector(".next");
 const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
 const close = document.querySelector(".close");
 const galleryImg = document.querySelector(".gallery-inner img");
 const gallery = document.querySelector(".gallery");
